@@ -70,7 +70,7 @@ x = np.array(iris_df[["petal length (cm)", "petal width (cm)"]])
 y = iris.target
 
 # Instantiate and fit the model
-model = cluster(x=x, y=y, size_population=500, goal=0.8, repeat=250)
+model = cluster(x = x, y = y, size_population = 500, goal = 0.8, repeat = 250)
 model.fit()
 ```
 

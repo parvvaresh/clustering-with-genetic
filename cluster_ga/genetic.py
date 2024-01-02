@@ -107,12 +107,12 @@ class genetic_iris(object):
 
   def _change_random_label(self):
 
-    sample_point = random.choice(self.points)
+    sample_index = random.choice(list(self.chromosome.keys()))
     sample_labels = random.choice(self.list_class)
 
-    while sample_labels == self.chromosome[sample_point]:
+    while sample_labels == self.chromosome[sample_index]:
       sample_labels = random.choice(self.list_class)
-    self.chromosome[sample_point] = sample_labels
+    self.chromosome[sample_index] = sample_labels
     
     
     

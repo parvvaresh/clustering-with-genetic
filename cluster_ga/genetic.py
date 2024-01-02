@@ -50,19 +50,21 @@ class genetic_iris(object):
         self.chromosome[index] = labels_neares_cluster
 
   def _find_labels_neares_cluster(self, sample_cluster_labels):
-    sample_cluster = []
+    sample_cluster = {}
+    _sample_cluster = []
     for index in range(len(self.chromosome)):
       if self.chromosome[index] == sample_cluster_labels:
-        sample_cluster.appendlabel
+        _sample_cluster.append(self.points[index])
+    sample_cluster[sample_cluster_labels] = _sample_cluster
 
-    clusters = []
+    clusters = {}
     for _label in self.list_class:
-      cluster = {}
+      cluster = []
       if sample_cluster_labels != _label:
-        for point, label in self.chromosome.items():
+        for index, label in self.chromosome.items():
           if label == _label:
-            cluster[point] = _label
-      clusters.append(cluster)
+            cluster.append(self.points[index])
+        clusters[_label] = cluster
 
     center_sample = self._find_cneter_cluster(sample_cluster)
 
@@ -78,15 +80,14 @@ class genetic_iris(object):
 
     distance = np.argsort(distance)
     index_nearest_center = distance[0]
-    neareset_cluster = clusters[index_nearest_center]
-    labels_neareset_cluster = list(neareset_cluster.values())[0]
+    
+    labels_neareset_cluster = list(clusters)[index_nearest_center]
     return labels_neareset_cluster
 
   def _find_cneter_cluster(self, cluster):
-    data = np.array(cluster.keys())
+    data = np.array(cluster.values())
     center = np.mean(data, axis=0)
     return center
-
   def _assign_nearest_cluster_label(self):
     sample_point = random.choice(self.points)
 

@@ -1,7 +1,3 @@
-Certainly! A README file provides essential information about the codebase, its purpose, usage, and dependencies. Here's a sample README file for your code:
-
----
-
 # Genetic Clustering Algorithm for Iris Dataset
 
 This Python script implements a genetic clustering algorithm for the Iris dataset using the KMeans algorithm as a base. The goal is to evolve a population of cluster assignments to find a set that maximizes the silhouette score, indicating better clustering.

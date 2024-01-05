@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn import datasets
 import random
-from genetic import genetic_iris 
+from .genetic import genetic_iris 
 
 class cluster:
   def __init__(self, x, y,  size_population = 50, goal = 0.9, repeat = 100):
@@ -11,13 +11,12 @@ class cluster:
     self.size_population = size_population
     self.goal = goal
     self.repeat = repeat
-    self.is_found = False
     self.population = []
 
   def fit(self):
     for _ in range(self.size_population):
       chromosome = self._creat_random_chromosome()
-      self.population.append(genetic_iris(chromosome))
+      self.population.append(genetic_iris(chromosome, self.x))
     self.counter = 1
 
     while True :
@@ -27,7 +26,6 @@ class cluster:
 
 
       if self.goal <= self.population[0].fitness_scores <= 1:
-        self.is_found = True
         break
 
       new_generation = list()
@@ -40,8 +38,12 @@ class cluster:
         parent2  = random.choice(self.population[:50])
         child = parent1.genrate(parent2)
         new_generation.append(child)
-
+      
       self.population = new_generation
+
+      for index in range(self.size_population):
+        self.population[index] = genetic_iris(self.population[index].mutation(), self.x)
+
       self.counter += 1
       self.show()
 

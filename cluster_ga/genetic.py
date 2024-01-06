@@ -4,7 +4,7 @@ from sklearn.metrics import silhouette_score
 from sklearn import datasets
 import random
 
-class genetic_iris(object):
+class genetic(object):
   def __init__(self, chromosome, points = None):
     self.chromosome = chromosome
     self.points = points
@@ -45,7 +45,7 @@ class genetic_iris(object):
       else:
         new_generation[index] =  random.choice(self.list_class)
         
-    return genetic_iris(new_generation, self.points)
+    return genetic(new_generation, self.points)
 
 
   def _change_labels_to_nearest_center(self):

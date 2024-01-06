@@ -1,80 +1,83 @@
-# Genetic Clustering Algorithm for Iris Dataset
+# Genetic Clustering Algorithm
 
-This Python script implements a genetic clustering algorithm for the Iris dataset using the KMeans algorithm as a base. The goal is to evolve a population of cluster assignments to find a set that maximizes the silhouette score, indicating better clustering.
+This Python script implements a genetic algorithm for clustering data. The algorithm optimizes the cluster assignments of data points using a genetic approach, aiming to improve the silhouette score. The silhouette score is a measure of how well-defined the clusters are in the data.
 
 ## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Dependencies](#dependencies)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
 - [Usage](#usage)
+- [Algorithm Overview](#algorithm-overview)
+  - [Genetic Class](#genetic-class)
+  - [Cluster Class](#cluster-class)
+  - [Main Script](#main-script)
 - [Parameters](#parameters)
-- [Example](#example)
+- [Results](#results)
 - [License](#license)
+- [Acknowledgments](#acknowledgments)
 
-## Introduction
+## Getting Started
 
-The code employs a genetic algorithm to evolve a population of cluster assignments for the Iris dataset. The genetic algorithm includes mutation and crossover operations to generate new clusters and improve the overall fitness score based on silhouette scores.
+### Prerequisites
 
-## Features
+- Python 3
+- Required libraries: numpy, pandas, scikit-learn, matplotlib
 
-- Genetic clustering algorithm for the Iris dataset.
-- Utilizes the KMeans algorithm for clustering.
-- Implements mutation and crossover operations for evolving cluster assignments.
-- Prints information about each generation and the best fitness score.
+### Installation
 
-## Dependencies
-
-- numpy
-- pandas
-- scikit-learn
-
-Install the required dependencies using:
+1. **Clone the repository:**
 
 ```bash
-pip install numpy pandas scikit-learn
+git clone https://github.com/your_username/genetic-clustering.git
+cd genetic-clustering
+```
+
+2. **Install the required dependencies:**
+
+```bash
+pip install -r requirements.txt
 ```
 
 ## Usage
 
-1. Clone the repository:
+Run the `genetic_clustering.py` script to execute the genetic clustering algorithm on the provided dataset. Make sure to update the script with your dataset or use the default Iris dataset.
 
 ```bash
-git clone <repository_url>
-cd <repository_directory>
+python genetic_clustering.py
 ```
 
-2. Run the script:
+## Algorithm Overview
 
-```bash
-python ai.ipynb
-```
+The genetic clustering algorithm consists of the following components:
+
+### Genetic Class
+
+Defines the genetic operations such as mutation, generation, and fitness calculation.
+
+### Cluster Class
+
+Manages the clustering process, including the initialization of populations, evolution, and convergence.
+
+### Main Script
+
+Utilizes the genetic and clustering classes to run the algorithm on a given dataset.
 
 ## Parameters
 
-- `size_population`: Size of the population (default: 500).
-- `goal`: Target fitness score (default: 0.8).
-- `repeat`: Maximum number of generations (default: 250).
+- `size_population`: Number of individuals in the population.
+- `goal`: The desired fitness score to achieve.
+- `repeat`: Number of generations to run the algorithm.
+- `is_mutation`: Boolean flag to enable or disable mutation.
 
-Adjust these parameters in the `model` instantiation for customization.
+## Results
 
-## Example
-
-```python
-from your_module import cluster
-
-# Load Iris dataset
-iris = datasets.load_iris()
-iris_df = pd.DataFrame(iris.data, columns=iris.feature_names)
-x = np.array(iris_df[["petal length (cm)", "petal width (cm)"]])
-y = iris.target
-
-# Instantiate and fit the model
-model = cluster(x = x, y = y, size_population = 500, goal = 0.8, repeat = 250)
-model.fit()
-```
+The script outputs the progress of the algorithm, including the generation number and the fitness score achieved. Additionally, a plot of the fitness scores over generations is displayed at the end of the execution.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](MIT) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
+## Acknowledgments
+
+- This implementation is inspired by genetic algorithms and clustering techniques.
+- Special thanks to the scikit-learn library for providing the silhouette score metric.

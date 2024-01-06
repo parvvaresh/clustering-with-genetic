@@ -12,11 +12,13 @@ class cluster:
     self.goal = goal
     self.repeat = repeat
     self.population = []
+    self.fitness = []
+
 
   def fit(self):
     for _ in range(self.size_population):
       chromosome = self._creat_random_chromosome()
-      self.population.append(genetic_iris(chromosome, self.x))
+      self.population.append(genetic(chromosome, self.x))
     self.counter = 1
 
     while True :
@@ -42,8 +44,10 @@ class cluster:
       self.population = new_generation
 
       for index in range(self.size_population):
-        self.population[index] = genetic_iris(self.population[index].mutation(), self.x)
+        self.population[index] = genetic(self.population[index].mutation(), self.x)
 
+
+      self.fitness.append(self.population[0].fitness_scores)
       self.counter += 1
       self.show()
 
@@ -56,3 +60,6 @@ class cluster:
   def show(self):
     print(f"loop is  : {self.counter}")
     print(f"generation: {self.population[0]} \tFitness: {self.population[0].fitness_scores}")
+
+  def show_plot(self):
+    plt.plot(self.fitness)

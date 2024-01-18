@@ -30,7 +30,6 @@ This Python script implements a genetic algorithm for clustering data. The algor
 ```bash
 https://github.com/parvvaresh/clustering-with-genetic
 cd clustering-with-genetic
-python3 test_iris.py
 ```
 
 2. **Install the required dependencies:**
@@ -44,7 +43,7 @@ pip install -r requirements.txt
 Run the `genetic_clustering.py` script to execute the genetic clustering algorithm on the provided dataset. Make sure to update the script with your dataset or use the default Iris dataset.
 
 ```bash
-python genetic_clustering.py
+python3 test_iris.py
 ```
 
 ## Algorithm Overview

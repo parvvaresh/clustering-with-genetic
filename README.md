@@ -28,8 +28,9 @@ This Python script implements a genetic algorithm for clustering data. The algor
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/your_username/genetic-clustering.git
-cd genetic-clustering
+https://github.com/parvvaresh/clustering-with-genetic
+cd clustering-with-genetic
+python3 test_iris.py
 ```
 
 2. **Install the required dependencies:**

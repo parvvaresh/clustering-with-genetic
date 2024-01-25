@@ -25,9 +25,13 @@ class genetic(object):
 
 
   def mutation(self):
-    self._change_labels_to_nearest_center()
-    self._change_random_label()
-    self._assign_nearest_cluster_label()
+    probabality = random.random()
+    if probabality >= 0.95:
+      self._change_labels_to_nearest_center()
+      self._change_random_label()
+      self._assign_nearest_cluster_label()
+      return self.chromosome
+
     return self.chromosome
 
   def genrate(self, parent):

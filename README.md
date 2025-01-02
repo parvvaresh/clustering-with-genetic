@@ -28,8 +28,8 @@ This Python script implements a genetic algorithm for clustering data. The algor
 1. **Clone the repository:**
 
 ```bash
-https://github.com/parvvaresh/clustering-with-genetic
-cd clustering-with-genetic
+https://github.com/parvvaresh/cluster_ga
+cd cluster_ga
 ```
 
 2. **Install the required dependencies:**
@@ -72,6 +72,8 @@ Utilizes the genetic and clustering classes to run the algorithm on a given data
 ## Results
 
 The script outputs the progress of the algorithm, including the generation number and the fitness score achieved. Additionally, a plot of the fitness scores over generations is displayed at the end of the execution.
+
+![result](./assets/result.png)
 
 ## License
 

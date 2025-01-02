@@ -7,6 +7,7 @@ class GeneticClustering:
         self.chromosome = chromosome
         self.points = points
         self.list_class = list_class
+        self.fitness_scores = self.get_fitness()
 
     def get_fitness(self):
         labels = np.array(list(self.chromosome.values()))

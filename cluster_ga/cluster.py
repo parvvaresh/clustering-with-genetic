@@ -3,11 +3,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import datasets
 import random
-from .genetic import genetic 
+from .genetic import GeneticClustering 
 
 
-class Cluster:
-    def __init__(self, X: np.array, y: np.array, size_population: int = 200, goal: float = 0.7, iters: int = 200) -> None:
+class cluster:
+    def __init__(self, X: np.array, y: np.array, size_population: int = 200, goal: float = 0.9, iters: int = 200) -> None:
         self.X = X
         self.y = y
         self.size_population = size_population
@@ -23,7 +23,7 @@ class Cluster:
     def fit(self) -> None:
         for _ in range(self.size_population):
             chromosome = self._create_random_chromosome()
-            self.population.append(genetic(chromosome, self.X, self.genom))
+            self.population.append(GeneticClustering(chromosome, self.X, self.genom))
 
         self.counter = 1
 
@@ -51,7 +51,7 @@ class Cluster:
 
             # Apply mutation to the new population
             for index in range(self.size_population):
-                self.population[index] = genetic(self.population[index].mutation(), self.X)
+                self.population[index] = GeneticClustering(self.population[index].mutate(), self.X, self.genom)
 
             # Update fitness scores
             self.fitness.append(self.population[0].fitness_scores)

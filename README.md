@@ -4,13 +4,11 @@ This Python script implements a genetic algorithm for clustering data. The algor
 
 ## Table of Contents
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
 - [Algorithm Overview](#algorithm-overview)
   - [Genetic Class](#genetic-class)
   - [Cluster Class](#cluster-class)
-  - [Main Script](#main-script)
 - [Parameters](#parameters)
 - [Results](#results)
 - [License](#license)
@@ -18,32 +16,42 @@ This Python script implements a genetic algorithm for clustering data. The algor
 
 ## Getting Started
 
-### Prerequisites
-
-- Python 3
-- Required libraries: numpy, pandas, scikit-learn, matplotlib
 
 ### Installation
 
-1. **Clone the repository:**
 
-```bash
-https://github.com/parvvaresh/cluster_ga
-cd cluster_ga
-```
 
 2. **Install the required dependencies:**
 
 ```bash
-pip install -r requirements.txt
+pip install cluster_ga
 ```
 
 ## Usage
 
-Run the `genetic_clustering.py` script to execute the genetic clustering algorithm on the provided dataset. Make sure to update the script with your dataset or use the default Iris dataset.
 
-```bash
-python3 test_iris.py
+
+```python
+from sklearn import datasets
+import numpy as np
+import pandas as pd
+from cluster_ga.cluster import cluster
+
+# this is a for test
+
+iris = datasets.load_iris()
+iris_df = pd.DataFrame(iris.data, columns=iris.feature_names)
+x = np.array(iris_df[["petal length (cm)", "petal width (cm)"]])
+y = iris.target
+
+# Instantiate and fit the model
+model = cluster(x, y, 500, 0.9,150) 
+model.fit()
+
+
+# show fitness plot
+model.show_plot()
+
 ```
 
 ## Algorithm Overview
@@ -58,9 +66,7 @@ Defines the genetic operations such as mutation, generation, and fitness calcula
 
 Manages the clustering process, including the initialization of populations, evolution, and convergence.
 
-### Main Script
 
-Utilizes the genetic and clustering classes to run the algorithm on a given dataset.
 
 ## Parameters
 

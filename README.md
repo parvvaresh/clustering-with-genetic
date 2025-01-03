@@ -3,8 +3,7 @@
 This Python script implements a genetic algorithm for clustering data. The algorithm optimizes the cluster assignments of data points using a genetic approach, aiming to improve the silhouette score. The silhouette score is a measure of how well-defined the clusters are in the data.
 
 ## Table of Contents
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Algorithm Overview](#algorithm-overview)
   - [Genetic Class](#genetic-class)
@@ -14,14 +13,12 @@ This Python script implements a genetic algorithm for clustering data. The algor
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
-## Getting Started
 
 
-### Installation
+## Installation
 
 
 
-2. **Install the required dependencies:**
 
 ```bash
 pip install cluster_ga

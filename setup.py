@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="cluster_ga",  # Name of your package
-    version="0.1",      # Version of your package
+    version="0.2",      # Version of your package
     author="Alireza Parvaresh",
     author_email="parvvaresh@gmail.com",
     description="This Python script implements a genetic algorithm for clustering data. The algorithm optimizes the cluster assignments of data points using a genetic approach, aiming to improve the silhouette score. The silhouette score is a measure of how well-defined the clusters are in the data.",
